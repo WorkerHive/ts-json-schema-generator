@@ -4,14 +4,12 @@ import { SubNodeParser } from "../SubNodeParser";
 import { ArrayType } from "../Type/ArrayType";
 import { BaseType } from "../Type/BaseType";
 import { FunctionObjectType, FunctionProperty } from "../Type/FunctionObjectType";
-import { FunctionType } from "../Type/FunctionType";
-import { ObjectProperty, ObjectType } from "../Type/ObjectType";
 import { OptionalType } from "../Type/OptionalType";
 import { ReferenceType } from "../Type/ReferenceType";
 import { RestType } from "../Type/RestType";
 
 export class FuncTypeNodeParser implements SubNodeParser {
-    public constructor(private childNodeParser: NodeParser) { }
+    public constructor(private childNodeParser: NodeParser) {}
 
     supportsNode(node: ts.Node): boolean {
         console.log(node.kind);
@@ -30,8 +28,8 @@ export class FuncTypeNodeParser implements SubNodeParser {
             const elem: BaseType = item.dotDotDotToken
                 ? new RestType(new ArrayType(type as BaseType))
                 : item.questionToken
-                    ? new OptionalType(type as BaseType)
-                    : (type as BaseType);
+                ? new OptionalType(type as BaseType)
+                : (type as BaseType);
             return elem;
         });
         const prop: FunctionProperty[] = types.map((item) => {
@@ -39,8 +37,8 @@ export class FuncTypeNodeParser implements SubNodeParser {
             const elem: BaseType = item.dotDotDotToken
                 ? new RestType(new ArrayType(type as BaseType))
                 : item.questionToken
-                    ? new OptionalType(type as BaseType)
-                    : (type as BaseType);
+                ? new OptionalType(type as BaseType)
+                : (type as BaseType);
             return new FunctionProperty(item.name.getText(), elem, item.questionToken ? false : true);
         });
         console.log(types, prop);

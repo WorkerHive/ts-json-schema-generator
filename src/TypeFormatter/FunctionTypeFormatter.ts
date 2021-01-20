@@ -13,7 +13,7 @@ import { uniqueArray } from "../Utils/uniqueArray";
 import { FunctionObjectType, FunctionProperty } from "../Type/FunctionObjectType";
 
 export class FunctionTypeFormatter implements SubTypeFormatter {
-    public constructor(private childTypeFormatter: TypeFormatter) { }
+    public constructor(private childTypeFormatter: TypeFormatter) {}
 
     public supportsType(type: FunctionObjectType): boolean {
         return type instanceof FunctionObjectType;
