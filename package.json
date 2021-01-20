@@ -1,6 +1,6 @@
 {
-  "name": "@workerhive/ts-json-schema-generator",
-  "version": "0.83.2",
+  "name": "silly-ts-json-schema-generator",
+  "version": "0.83.3",
   "description": "Generate JSON schema from your Typescript sources",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
