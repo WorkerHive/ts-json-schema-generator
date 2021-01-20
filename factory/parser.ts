@@ -51,6 +51,8 @@ import { ObjectLiteralExpressionNodeParser } from "./../src/NodeParser/ObjectLit
 import { ArrayLiteralExpressionNodeParser } from "../src/NodeParser/ArrayLiteralExpressionNodeParser";
 import { PropertyAccessExpressionParser } from "../src/NodeParser/PropertyAccessExpressionParser";
 
+import { FuncTypeNodeParser } from "../src/NodeParser/FuncTypeNodeParser";
+
 export function createParser(program: ts.Program, config: Config): NodeParser {
     const typeChecker = program.getTypeChecker();
     const chainNodeParser = new ChainNodeParser(typeChecker, []);
@@ -78,6 +80,7 @@ export function createParser(program: ts.Program, config: Config): NodeParser {
     }
 
     chainNodeParser
+        .addNodeParser(new FuncTypeNodeParser(chainNodeParser))
         .addNodeParser(new HiddenNodeParser(typeChecker))
         .addNodeParser(new StringTypeNodeParser())
         .addNodeParser(new SymbolTypeNodeParser())

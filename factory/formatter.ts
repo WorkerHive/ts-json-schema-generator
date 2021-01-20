@@ -27,6 +27,7 @@ import { UnionTypeFormatter } from "../src/TypeFormatter/UnionTypeFormatter";
 import { UnknownTypeFormatter } from "../src/TypeFormatter/UnknownTypeFormatter";
 import { VoidTypeFormatter } from "../src/TypeFormatter/VoidTypeFormatter";
 import { MutableTypeFormatter } from "../src/MutableTypeFormatter";
+import { FunctionTypeFormatter } from "../src/TypeFormatter/FunctionTypeFormatter";
 
 export type FormatterAugmentor = (formatter: MutableTypeFormatter) => void;
 
@@ -39,6 +40,7 @@ export function createFormatter(config: Config, augmentor?: FormatterAugmentor):
     }
 
     chainTypeFormatter
+        .addTypeFormatter(new FunctionTypeFormatter(chainTypeFormatter))
         .addTypeFormatter(new AnnotatedTypeFormatter(circularReferenceTypeFormatter))
 
         .addTypeFormatter(new StringTypeFormatter())

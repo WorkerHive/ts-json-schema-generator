@@ -6,10 +6,12 @@ export class TupleType extends BaseType {
     }
 
     public getId(): string {
+        console.log(this.types.map((x) => x.getId()));
         return `[${this.types.map((item) => item.getId()).join(",")}]`;
     }
 
     public getTypes(): readonly BaseType[] {
+        console.log(this.types);
         return this.types;
     }
 }

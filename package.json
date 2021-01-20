@@ -1,5 +1,5 @@
 {
-  "name": "ts-json-schema-generator",
+  "name": "@workerhive/ts-json-schema-generator",
   "version": "0.83.2",
   "description": "Generate JSON schema from your Typescript sources",
   "main": "dist/index.js",
@@ -26,11 +26,15 @@
     {
       "name": "MooYeol Prescott Lee",
       "email": "mooyoul@gmail.com"
+    },
+    {
+      "name": "Ross Leitch",
+      "email": "professional.balbatross@gmail.com"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/vega/ts-json-schema-generator.git"
+    "url": "https://github.com/WorkerHive/ts-json-schema-generator.git"
   },
   "license": "MIT",
   "keywords": [
